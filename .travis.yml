@@ -24,11 +24,10 @@ jobs:
     - stage: "Build"
       name: "Building app"
       script: ng build --prod --base-href https://bamanczak.github.io/pesel/
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/pesel
-  on:
-    branch: master
+    - stage: "Deploy"
+      provider: pages
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      local_dir: dist/pesel
+      on:
+        branch: master
