@@ -9,9 +9,6 @@ branches:
   only:
     - master
 
-before_script:
-  - npm install -g @angular/cli
-
 jobs:
   include:
     - stage: "Lint"
@@ -22,12 +19,14 @@ jobs:
       script: npm run test
       name: "Integration Tests"
     - stage: "Build"
+      before_script: npm install -g @angular/cli
       name: "Building app"
       script: ng build --prod --base-href https://bamanczak.github.io/pesel/
     - stage: "Deploy"
-      provider: pages
-      skip_cleanup: true
-      github_token: $GITHUB_TOKEN
-      local_dir: dist/pesel
-      on:
-        branch: master
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/pesel
+        on:
+          branch: master
