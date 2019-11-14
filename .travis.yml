@@ -11,18 +11,14 @@ branches:
 
 jobs:
   include:
-    - stage: "Lint"
-      name: "Ng Lint"
+    - stage: lint
       script: npm run lint
-    - stage: "Test"
-      name: "Unit Tests"
-      script: npm run test
-      name: "Integration Tests"
-    - stage: "Build"
+    - stage: test
+      script: npm run test-headless
+    - stage: build
       before_script: npm install -g @angular/cli
-      name: "Building app"
       script: ng build --prod --base-href https://bamanczak.github.io/pesel/
-    - stage: "Deploy"
+    - stage: deploy
       deploy:
         provider: pages
         skip_cleanup: true
