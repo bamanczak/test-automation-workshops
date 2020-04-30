@@ -31,7 +31,7 @@ describe('AppComponent', () => {
     expect(component.isValidPesel('96000207813')).toBe(false);
     expect(component.isValidPesel('95022907815')).toBe(false);
     expect(component.isValidPesel('01072696366')).toBe(true);
-    expect(component.isValidPesel('33413002857')).toBe(true);
+    expect(component.isValidPesel('33413002857')).toBe(false);
     });
 
   it('should reject PESEL numbers of invalid type', () => {
