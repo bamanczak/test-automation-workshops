@@ -86,4 +86,4 @@ describe('AppComponent', () => {
     // only onSubmit uses it
     expect(component.getDate([2, 0, 2, 2, 2, 9, 9, 1, 9, 8, 2])).toBe(undefined);
   });
-})
+});
