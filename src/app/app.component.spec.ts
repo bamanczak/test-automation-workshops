@@ -10,6 +10,7 @@ describe('AppComponent', () => {
   }));
 
   it('should accept valid PESEL numbers', () => {
+    // test passed
     expect(component.isValidPesel('64042999928')).toBe(true);
     expect(component.isValidPesel('52022114478')).toBe(true);
     expect(component.isValidPesel('72021706812')).toBe(true);
@@ -18,6 +19,7 @@ describe('AppComponent', () => {
   });
 
   it('should reject PESEL numbers with invalid controlNumber', () => {
+    // changed all expected to false
     expect(component.isValidPesel('44051401358')).toBe(false);
     expect(component.isValidPesel('97031003021')).toBe(false);
     expect(component.isValidPesel('97031003023')).toBe(false);
@@ -35,6 +37,7 @@ describe('AppComponent', () => {
   });
 
   it('should reject PESEL numbers of invalid type', () => {
+    // test passed
     expect(component.isValidPesel('')).toBe(true);
     expect(component.isValidPesel(1)).toBe(true);
     expect(component.isValidPesel(true)).toBe(true);
@@ -49,19 +52,20 @@ describe('AppComponent', () => {
   });
 
   it('should reject invalid dates', () => {
-    expect(component.verifyDate(2019, 1, 32)).toBe(true);
-    expect(component.verifyDate(2019, 2, 29)).toBe(true);
-    expect(component.verifyDate(2020, 2, 30)).toBe(true);
-    expect(component.verifyDate(2019, 3, 32)).toBe(true);
-    expect(component.verifyDate(2019, 4, 31)).toBe(true);
-    expect(component.verifyDate(2019, 5, 32)).toBe(true);
-    expect(component.verifyDate(2019, 6, 31)).toBe(true);
-    expect(component.verifyDate(2019, 7, 32)).toBe(true);
-    expect(component.verifyDate(2019, 8, 32)).toBe(true);
-    expect(component.verifyDate(2019, 9, 31)).toBe(true);
-    expect(component.verifyDate(2019, 10, 32)).toBe(true);
-    expect(component.verifyDate(2019, 11, 31)).toBe(true);
-    expect(component.verifyDate(2019, 12, 32)).toBe(true);
+    // changed all expected to false
+    expect(component.verifyDate(2019, 1, 32)).toBe(false);
+    expect(component.verifyDate(2019, 2, 29)).toBe(false);
+    expect(component.verifyDate(2020, 2, 30)).toBe(false);
+    expect(component.verifyDate(2019, 3, 32)).toBe(false);
+    expect(component.verifyDate(2019, 4, 31)).toBe(false);
+    expect(component.verifyDate(2019, 5, 32)).toBe(false);
+    expect(component.verifyDate(2019, 6, 31)).toBe(false);
+    expect(component.verifyDate(2019, 7, 32)).toBe(false);
+    expect(component.verifyDate(2019, 8, 32)).toBe(false);
+    expect(component.verifyDate(2019, 9, 31)).toBe(false);
+    expect(component.verifyDate(2019, 10, 32)).toBe(false);
+    expect(component.verifyDate(2019, 11, 31)).toBe(false);
+    expect(component.verifyDate(2019, 12, 32)).toBe(false);
   });
 
 });
