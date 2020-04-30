@@ -68,5 +68,9 @@ describe('AppComponent', () => {
     expect(component.verifyDate(2019, 11, 31)).toBe(false);
     expect(component.verifyDate(2019, 12, 32)).toBe(false);
   });
+  // new tests
+  it('should return true if PESELS numbers are valid', () => {
+    expect(component.isValidPesel('20222991982')).toBe(true);
+  });
 
 });
