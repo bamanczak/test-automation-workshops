@@ -9,8 +9,9 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', () => {
+    // changed expected value to 'Walidator PESEL'
     page.navigateTo();
-    expect(page.getTitleText()).toEqual(' PESEL');
+    expect(page.getTitleText()).toEqual('Walidator PESEL');
   });
 
   afterEach(async () => {
