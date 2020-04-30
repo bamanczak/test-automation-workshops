@@ -68,13 +68,22 @@ describe('AppComponent', () => {
     expect(component.verifyDate(2019, 11, 31)).toBe(false);
     expect(component.verifyDate(2019, 12, 32)).toBe(false);
   });
+
   // new tests which coverage getYear method
   it('should return true if PESELS numbers are valid', () => {
     // case: Dates in the XXI, XXII and XXIII  century
     expect(component.isValidPesel('20222991982')).toBe(true);
+    expect(component.isValidPesel('99240297668')).toBe(true);
+    expect(component.isValidPesel('53410319477')).toBe(true);
     // case: Dates in the XIX century
     expect(component.isValidPesel('64841117792')).toBe(true);
-
+    expect(component.isValidPesel('66861129670')).toBe(true);
+    expect(component.isValidPesel('99921236278')).toBe(true);
   });
 
-});
+  // new tests which coverage getDate method
+  it('should return true if date in PESEL number is correct', () => {
+    // only onSubmit uses it
+    expect(component.getDate([2, 0, 2, 2, 2, 9, 9, 1, 9, 8, 2])).toBe(undefined);
+  });
+})
