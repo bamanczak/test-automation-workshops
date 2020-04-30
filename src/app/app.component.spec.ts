@@ -37,14 +37,15 @@ describe('AppComponent', () => {
   });
 
   it('should reject PESEL numbers of invalid type', () => {
-    // test passed
-    expect(component.isValidPesel('')).toBe(true);
-    expect(component.isValidPesel(1)).toBe(true);
-    expect(component.isValidPesel(true)).toBe(true);
-    expect(component.isValidPesel(null)).toBe(true);
+    // changed all expected to false
+    expect(component.isValidPesel('')).toBe(false);
+    expect(component.isValidPesel(1)).toBe(false);
+    expect(component.isValidPesel(true)).toBe(false);
+    expect(component.isValidPesel(null)).toBe(false);
   });
 
   it('should accept valid dates', () => {
+    // test passed
     expect(component.verifyDate(2019, 2, 28)).toBe(true);
     expect(component.verifyDate(2020, 2, 29)).toBe(true);
     expect(component.verifyDate(2020, 1, 1)).toBe(true);
