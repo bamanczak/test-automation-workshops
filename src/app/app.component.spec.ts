@@ -24,10 +24,14 @@ describe('AppComponent', () => {
   });
 
   it('should reject PESEL numbers with invalid date', () => {
-    expect(component.isValidPesel('96023007818')).toBe(true);
-    expect(component.isValidPesel('96130207819')).toBe(true);
-    expect(component.isValidPesel('96000207813')).toBe(true);
-    expect(component.isValidPesel('95022907815')).toBe(true);
+    // month == 2, day == 30, changed expected to false
+    expect(component.isValidPesel('96023007818')).toBe(false);
+    // month == 13, changed expected to false
+    expect(component.isValidPesel('96130207819')).toBe(false);
+    // month == 00, changed expected to false
+    expect(component.isValidPesel('96000207813')).toBe(false);
+    // month == 02, day == 29, 1995 was not a leap year
+    expect(component.isValidPesel('95022907815')).toBe(false);
   });
 
   it('should reject PESEL numbers of invalid type', () => {
