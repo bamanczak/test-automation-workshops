@@ -8,6 +8,8 @@ addons:
 branches:
   only:
   - master
+  - invalid
+  - valid
 before_script:
   - npm install -g @angular/cli
 script:
