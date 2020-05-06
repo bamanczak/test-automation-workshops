@@ -68,7 +68,7 @@ export class AppComponent {
   }
 
   verifyControlNumber(pesel: Array<number>) {
-    const weight = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7];
+    const weight = [9, 12, 37, 11, 13, 7, 3, 1, 9, 7];
     let sum = 0;
     const controlNumber = pesel[10];
     for (let i = 0; i < weight.length; i++) {
