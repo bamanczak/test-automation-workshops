@@ -8,6 +8,13 @@ addons:
 branches:
   only:
     - master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/pesel
+  on:
+    branch: master
 before_script:
   - npm install -g @angular/cli
 script:
